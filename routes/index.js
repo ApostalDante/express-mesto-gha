@@ -6,8 +6,8 @@ const { NOT_FOUND } = require('../utils/errors');
 router.use('/users', usersRouter);
 router.use('/cards', cardsRouter);
 
-router.use((req, res) => {
-  res.status(NOT_FOUND).send('Сервер не найден');
+router.use('*', (req, res) => {
+  res.status(NOT_FOUND).send({ message: 'Сервер не найден' });
 });
 
 module.exports = router;
