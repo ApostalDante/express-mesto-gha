@@ -17,7 +17,7 @@
     "type": "git",
     "url": "git+https://github.com/ApostalDante/express-mesto-gha.git"
   },
-  "author": "",
+  "author": "evgenii levkin",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ApostalDante/express-mesto-gha/issues"
