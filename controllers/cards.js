@@ -42,7 +42,7 @@ const likeCard = (req, res, next) => {
     { $addToSet: { likes: req.user._id } },
     { new: true },
   ).orFail(() => new NotFound('NotFound'))
-    .then((card) => res.send(card))
+    .then((card) => res.status(201).send(card))
     .catch((error) => {
       if (error.name === 'CastError') {
         next(new BadRequest('Переданы некорректные данные для постановки лайка'));
