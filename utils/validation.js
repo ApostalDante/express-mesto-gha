@@ -4,13 +4,13 @@ const regex = /^(https?:\/\/)?[^\s]*\.(jpeg|png|ico|gif|webp)$/;
 
 const validateCreateUser = celebrate({
   body: Joi.object().keys({
-    name: Joi.string().min(2).max(30),
-    about: Joi.string().min(2).max(30),
-    avatar: Joi.string().pattern(regex),
     email: Joi.string().min(4).max(50).email()
       .required(),
     password: Joi.string()
       .required(),
+    name: Joi.string().min(2).max(30),
+    about: Joi.string().min(2).max(30),
+    avatar: Joi.string().pattern(regex),
   }),
 });
 

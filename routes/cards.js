@@ -11,7 +11,7 @@ const {
 const {
   validateCreateCard,
   validateCard,
-} = require('../utils/validator');
+} = require('../utils/validation');
 
 router.post('/', validateCreateCard, createCard);
 router.get('/', getCards);

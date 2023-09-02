@@ -12,7 +12,7 @@ const {
   validateUser,
   validateUpdateUser,
   validateUpdateUserAvatar,
-} = require('../utils/validator');
+} = require('../utils/validation');
 
 router.get('/', getUsers);
 router.get('/me', getUser);
