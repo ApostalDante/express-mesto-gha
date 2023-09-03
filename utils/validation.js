@@ -4,7 +4,7 @@ const regex = /^(https?:\/\/)?[^\s]*\.(jpeg|png|ico|gif|webp|bmp|test)$/;
 
 const validateCreateUser = celebrate({
   body: Joi.object().keys({
-    email: Joi.string().min(4).max(50).email()
+    email: Joi.string().min(4).email()
       .required(),
     password: Joi.string()
       .required(),
@@ -23,20 +23,23 @@ const validateUser = celebrate({
 
 const validateUpdateUser = celebrate({
   body: Joi.object().keys({
-    name: Joi.string().min(2).max(30),
-    about: Joi.string().min(2).max(30),
+    name: Joi.string().min(2).max(30)
+      .required(),
+    about: Joi.string().min(2).max(30)
+      .required(),
   }),
 });
 
 const validateUpdateUserAvatar = celebrate({
   body: Joi.object().keys({
-    avatar: Joi.string().min(4).pattern(regex),
+    avatar: Joi.string().min(4).pattern(regex)
+      .required(),
   }),
 });
 
 const validateLogin = celebrate({
   body: Joi.object().keys({
-    email: Joi.string().min(4).max(50).email()
+    email: Joi.string().min(4).email()
       .required(),
     password: Joi.string()
       .required(),

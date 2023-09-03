@@ -42,8 +42,6 @@ const getUserId = (req, res, next) => {
     .catch((error) => {
       if (error.name === 'CastError') {
         next(new BadRequest('Переданы некорректные данные'));
-      } else if (error.message === 'NotFound') {
-        next(new NotFound(`Пользователь по указанному _id ${userId} не найден`));
       } else {
         next(error);
       }
@@ -59,10 +57,8 @@ const updateUser = (req, res, next) => {
   ).orFail(() => new NotFound('NotFound'))
     .then((user) => res.send(user))
     .catch((error) => {
-      if (error.name === 'ValidationError' || error.name === 'CastError') {
+      if (error.name === 'ValidationError') {
         next(new BadRequest('Переданы некорректные данные при обновлении профиля'));
-      } else if (error.message === 'NotFound') {
-        next(new NotFound(`Пользователь с указанным _id ${req.user._id} не найден`));
       } else {
         next(error);
       }
@@ -78,10 +74,8 @@ const updateUserAvatar = (req, res, next) => {
   ).orFail(() => new NotFound('NotFound'))
     .then((user) => res.send(user))
     .catch((error) => {
-      if (error.name === 'ValidationError' || error.name === 'CastError') {
+      if (error.name === 'ValidationError') {
         next(new BadRequest('Переданы некорректные данные при обновлении аватара'));
-      } else if (error.message === 'NotFound') {
-        next(new NotFound(`Пользователь с указанным _id ${req.user._id} не найден`));
       } else {
         next(error);
       }
