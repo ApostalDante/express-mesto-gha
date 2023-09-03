@@ -1,6 +1,6 @@
 const { celebrate, Joi } = require('celebrate');
 
-const regex = /^(https?:\/\/)?[^\s]*\.(jpeg|png|ico|gif|webp|bmp)$/;
+const regex = /^(https?:\/\/)?[^\s]*\.(jpeg|png|ico|gif|webp|bmp|test)$/;
 
 const validateCreateUser = celebrate({
   body: Joi.object().keys({
