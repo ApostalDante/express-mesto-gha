@@ -46,8 +46,6 @@ const likeCard = (req, res, next) => {
     .catch((error) => {
       if (error.name === 'CastError') {
         next(new BadRequest('Переданы некорректные данные для постановки лайка'));
-      } else if (error.message === 'NotFound') {
-        next(new NotFound(`Передан несуществующий _id ${req.params.cardId} карточки`));
       } else {
         next(error);
       }
@@ -64,8 +62,6 @@ const dislikeCard = (req, res, next) => {
     .catch((error) => {
       if (error.name === 'CastError') {
         next(new BadRequest('Переданы некорректные данные для снятия лайка'));
-      } else if (error.message === 'NotFound') {
-        next(new NotFound(`Передан несуществующий _id ${req.params.cardId} карточки`));
       } else {
         next(error);
       }
